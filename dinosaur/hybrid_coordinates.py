@@ -522,6 +522,15 @@ class HybridCoordinates:
     """
     return cls._from_resource_csv('data/ufs127_hybrid_levels.csv')
 
+
+  @classmethod
+  def GEOS72(cls) -> HybridCoordinates:  # pylint: disable=invalid-name
+    """Returns the 72 model levels used by NASA GEOS (e.g., in MERRA-2).
+    Pressure is returned in units of hPa.
+    For details, see the NASA MERRA documentation
+    """
+    return cls._from_resource_csv('data/geos72_hybrid_levels.csv')
+
   @property
   def layers(self) -> int:
     return len(self.a_boundaries) - 1
